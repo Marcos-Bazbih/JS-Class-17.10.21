@@ -154,16 +154,16 @@
 // };
 
 
-//! צרו מחלקה של יישוב עם שדות של מס תושבים ושם.
-//! בנו פונקציה שמחזירה את הפרטים בטקסט אחד.
-//! לאחר מכן צרו מחלקה של מדינה, עיר וכפר, המחלקות
-//! יורשות מהמחלקה יישוב.
-//! הוסיפו לכל מחלקה פונקציה שקוראת לפונקציה ממחלקת
-//! ההורה ומחזירה את הטקסט עם סוג היישוב .
-//! צרו פונקציה סטטית במחלקה יישוב שמקבלת מספר
-//! אובייקטים ומחזירה את האובייקט עם מספר התושבים הגדול ביותר.
-//! צרו טופס שמקבל נתונים מהמשתמש ועל פי הטופס יוצרת
-//! את האובייקט המתאים ומוסיפה אותו לטבלה מתחת לטופס.
+// ! צרו מחלקה של יישוב עם שדות של מס תושבים ושם.
+// ! בנו פונקציה שמחזירה את הפרטים בטקסט אחד.
+// ! לאחר מכן צרו מחלקה של מדינה, עיר וכפר, המחלקות
+// ! יורשות מהמחלקה יישוב.
+// ! הוסיפו לכל מחלקה פונקציה שקוראת לפונקציה ממחלקת
+// ! ההורה ומחזירה את הטקסט עם סוג היישוב .
+// ! צרו פונקציה סטטית במחלקה יישוב שמקבלת מספר
+// ! אובייקטים ומחזירה את האובייקט עם מספר התושבים הגדול ביותר.
+// ! צרו טופס שמקבל נתונים מהמשתמש ועל פי הטופס יוצרת
+// ! את האובייקט המתאים ומוסיפה אותו לטבלה מתחת לטופס.
 
 
 // class Settlement {
@@ -175,58 +175,52 @@
 //     };
 //     printDetails() {
 //         return `name:${this.name}, number Of People:${this.numberOfPeople}`;
-//     }
+//     };
 //     static getMostPeople(array) {
 //         let max = array[0];
+        
 //         for (let i = 0; i < array.length; i++) {
 //             if (array[i].numberOfPeople > max.numberOfPeople) {
 //                 max = array[i];
-//             }
-//         }
+//             };
+//         };
 //         return max;
 //     };
 // };
 
 // class State extends Settlement {
-//     constructor(name, numberOfPeople) {
-//         super(name, numberOfPeople);
-//     };
-//     getDetails() {
-//         return this.printDetails() + " " + this.constructor.name
+//     printDetails() {
+//         return super.printDetails() + " " + "State"
 //     }
 // };
 
 // class City extends Settlement {
-//     constructor(name, numberOfPeople) {
-//         super(name, numberOfPeople);
-//     };
-//     getDetails() {
-//         return this.printDetails() + " " + this.constructor.name
+//     printDetails() {
+//         return super.printDetails() + " " + "City"
 //     }
 // };
 
 // class Village extends Settlement {
-//     constructor(name, numberOfPeople) {
-//         super(name, numberOfPeople);
-//     };
-//     getDetails() {
-//         return this.printDetails() + " " + this.constructor.name
+//     printDetails() {
+//         return super.printDetails() + " " + "Village"
 //     }
 // };
 
-// let settlement1 = new State("Ashdod", 400000);
-// let settlement2 = new Village("Natania", 250000);
-// let settlement3 = new City("Haifa", 150000);
-// let settlement4 = new State("K-Y", 50000);
-// let settlement5 = new Village("Rishon", 10);
-// let settlement6 = new City("Jerusalem", 1000000);
+// const settlement1 = new State("Ashdod", 400000);
+// const settlement2 = new Village("Natania", 250000);
+// const settlement3 = new City("Haifa", 150000);
+// const settlement4 = new State("K-Y", 50000);
+// const settlement5 = new Village("Rishon", 10);
+// const settlement6 = new City("Jerusalem", 1000000);
 
 
 // const array = [settlement1, settlement2, settlement3, settlement4, settlement5, settlement6];
 // console.log(array);
 
-// console.log(settlement1.getDetails());
-// console.log(settlement2.getDetails());
+// console.log(settlement1.printDetails());
+// console.log(settlement2.printDetails());
+// console.log(settlement3.printDetails());
+
 
 // console.log(Settlement.getMostPeople(array));
 
@@ -234,13 +228,14 @@
 // const form = document.getElementById("form");
 // const inputName = document.getElementById("inputName");
 // const inputNum = document.getElementById("inputNum");
-// const inputType = document.getElementById("inputType");
+// const select = document.getElementById("select");
+
 
 // form.onsubmit = ((event) => {
 //     event.preventDefault();
 //     let newSettlement;
 
-//     switch (inputType.value) {
+//     switch (select.value) {
 //         case "City":
 //             newSettlement = new City(inputName.value, inputNum.value);
 //             break;
@@ -248,13 +243,12 @@
 //             newSettlement = new State(inputName.value, inputNum.value);
 //             break;
 //         case "Village":
-//             newSettlement = new Village(inputName.value, inputNum.value);
+//             newSettlement = new Village(inputName.value, inputNum.value); 
 //             break;
 //         default:
-//             alert("wrong type")
 //             break;
 //     }
 //     console.log(newSettlement);
 
-//     table.innerHTML += `<tr> <td>${newSettlement.name}</td> <td>${inputType.value}</td> <td>${newSettlement.numberOfPeople}</td></tr>`
+//     table.innerHTML += `<tr> <td>${newSettlement.name}</td> <td>${select.value}</td> <td>${newSettlement.numberOfPeople}</td></tr>`
 // })
